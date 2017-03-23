@@ -1,4 +1,4 @@
-
+  
 #initialize a snake array
 SNAKE_LENGTH=5
 SNAKE_DIRECTION="up"
