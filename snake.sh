@@ -49,9 +49,16 @@ function snakeUpdate()
 }
 
 function getKey()
-{
+{   
+    #get keystroke
+    #-r       :    catch backslash \
+    #-s       :    silent, do not echo keystrke
+    #-n       ;    catch only 1 character
+    #ui       :    save char to "ui"
+    #-t 0.01  :    wait 0.01s
     read -rsn1 -t 0.01 ui 
     case "$ui" in
+    # $'\x1b' means escape character
     $'\x1b')
         read -rsn2 -t 0.01  direc
         case "$direc" in        
@@ -66,6 +73,7 @@ function getKey()
 
 function draw()
 {
+    #move cursor to (0,0)
     tput home
     clear
 
